@@ -51,6 +51,8 @@ module.exports = {
 			},
 			fontFamily: {
 
+				"proxima_nova": [ "proxima-nova", "sans-serif" ],
+				"itc_avant_garde": [ "itc-avant-garde-gothic-pro", "sans-serif" ]
 
 			}
 
