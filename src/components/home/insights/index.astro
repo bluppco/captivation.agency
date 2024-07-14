@@ -1,7 +1,112 @@
 ---
 
+// IMOPRT ASTRO COMPONENTS
+import ImageCard from "@/components/home/insights/image-card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
+import HeadingWhite from "@/atoms/atoms-nandini/headings/four/white/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/index.astro"
+import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/index.astro"
+import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_text,
+    card3_button_text1,
+    card3_button_text2,
+    card3_button_text3,
+    card3_button_text4,
+    card1_desc1,
+    card1_desc2,
+    card1_desc3,
+    card2_desc1,
+    card2_desc2,
+    card2_desc3,
+    card3_desc1,
+    card3_desc2,
+    card3_desc3,
+    card_details,
+    card1_title,
+    card2_title,
+    card3_title,
+
+} = Astro.props
+
 ---
 
 <section>
-
+    <div class="m-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:flex lg:justify-center pb-20 mx-2">
+            <ImageCard
+                alternative_text="card-image"
+                button_text={ button_text }
+                card_desc1={ card1_desc1 }
+                card_desc2={ card1_desc2 }
+                card_desc3={ card1_desc3 }
+                card_details={ card_details }
+                card_link="/insights/sarasota-giving-challenge-2024.html"
+                card_title={ card1_title }
+                source="/images/insight1.png"
+            />
+            <ImageCard
+                alternative_text="card-image"
+                button_text={ button_text }
+                card_desc1={ card2_desc1 }
+                card_desc2={ card2_desc2 }
+                card_desc3={ card2_desc3 }
+                card_details={ card_details }
+                card_link="/insights/webinar-the-power-of-personality.html"
+                card_title={ card2_title }
+                source="/images/insight2.png"
+            />
+            <!-- Card-3 -->
+            <div class="col-span-1 max-w-md bg-black rounded-xl">
+                <div class="relative overflow-hidden pb-20 sm:pb-10 md:pb-2 border border-b-2 border-t-transparent border-x-transparent hover:rounded-t-xl">
+                    <div class="hover:transition-all hover:delay-200 hover:scale-105 hover:duration-500 rounded-t-xl overflow-hidden">
+                        <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
+                            <PictureInternal
+                                alternative_text="Image"
+                                source="/images/insight3.png"
+                            />
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 m-5">
+                    <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
+                        <HeadingWhite>{ card3_title }</HeadingWhite>
+                    </a>
+                    <ParagraphSM>{ card3_desc1 }</ParagraphSM>
+                    <div class="flex flex-wrap gap-2 mr-16">
+                        <ParagraphSMWhite>{ card3_desc2 }</ParagraphSMWhite>
+                        <ParagraphSMWhite>{ card3_desc3 }</ParagraphSMWhite>
+                    </div>
+                        <div class="leading-9">
+                            <a href="/articles">
+                                <ButtonTransparent>{ card3_button_text1 }</ButtonTransparent>
+                            </a>
+                            <a href="/general">
+                                <ButtonTransparent>{ button_text }</ButtonTransparent>
+                            </a>
+                            <a href="/helpful-tips">
+                                <ButtonTransparent>{ card3_button_text2 }</ButtonTransparent>
+                            </a>
+                            <a href="/rich-media">
+                                <ButtonTransparent>{ card3_button_text3 }</ButtonTransparent>
+                            </a>
+                            <a href="/websites">
+                                <ButtonTransparent>{ card3_button_text4 }</ButtonTransparent>
+                            </a>
+                        </div>
+                </div> 
+                <div class="m-5">
+                    <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
+                        <ParagraphRed>{ card_details }</ParagraphRed>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
