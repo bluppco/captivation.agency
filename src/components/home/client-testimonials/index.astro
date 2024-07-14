@@ -1,7 +1,71 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import ButtonWhite from "@/atoms/atoms-nandini/buttons/white/index.astro"
+import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
+import HeadingWhite from "@/atoms/atoms-nandini/headings/two/white/index.astro"
+import HeadingWhiteSM from "@/atoms/atoms-nandini/headings/two/white/sm/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/index.astro"
+import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/index.astro"
+import ParagraphSMItalic from "@/atoms/atoms-nandini/paragraphs/sm/italic/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_text1,
+    button_text2,
+    desc1,
+    desc2,
+    desc3,
+    sub_title,
+    title,
+
+} = Astro.props
+
 ---
 
-<section>
-
+<section class="bg-black">
+    <div class="flex flex-wrap gap-7 px-5 py-20">
+        <div class="w-full border-t-2 pt-20">
+            <HeadingWhite>{ title }</HeadingWhite>
+        </div>
+        <ParagraphSMItalic>{ desc1 }</ParagraphSMItalic>
+        <div class="flex flex-wrap gap-x-6 mr-20 mb-10">
+            <div class="rounded-full overflow-hidden">
+                <PictureInternal
+                    alternative_text="Image"
+                    source="/images/client-testimonials.webp"
+                />
+            </div>
+            <div class="">
+                <HeadingWhiteSM>{ sub_title }</HeadingWhiteSM>
+                <div class="space-y-1.5">
+                    <div class="flex gap-x-0.5">
+                        <ParagraphSM>{ desc2 }</ParagraphSM>
+                        <a href="/summersuccessinstitute.com">
+                            <ParagraphRed>{ desc3 }</ParagraphRed>
+                        </a>
+                    </div>
+                    <div class="flex size-3.5 gap-x-1">
+                        <img alt="star_icon" src="/icons/_star_icon.svg">
+                        <img alt="star_icon" src="/icons/_star_icon.svg">
+                        <img alt="star_icon" src="/icons/_star_icon.svg">
+                        <img alt="star_icon" src="/icons/_star_icon.svg">
+                        <img alt="star_icon" src="/icons/_star_icon.svg">
+                    </div>
+                </div>     
+            </div>    
+        </div>
+        <div class="border-b-2 pb-20 w-full">
+            <div class="flex flex-wrap gap-y-4 md:flex gap-4">
+                <a href="https://www.google.com/search?q=captivation+agency+reviews&oq=captivation+agency+reviews&aqs=chrome..69i57j69i64l2.4290j0j7&sourceid=chrome&ie=UTF-8#lrd=0x88c340f0951414d9:0xbf4e0bc3d49cc937,1,,,">
+                    <ButtonRed>{ button_text1 }</ButtonRed>
+                </a>
+                <a href="/reviews">
+                    <ButtonWhite>{ button_text2 }</ButtonWhite>
+                </a>
+            </div>
+        </div>
+    </div>   
 </section>
