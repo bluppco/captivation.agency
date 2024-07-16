@@ -6,9 +6,12 @@ import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
 import HeadingWhite from "@/atoms/atoms-nandini/headings/two/white/index.astro"
 import HeadingWhiteSM from "@/atoms/atoms-nandini/headings/two/white/sm/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/index.astro"
+import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/sm/index.astro"
 import ParagraphWhiteSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 import ParagraphWhiteSMItalic from "@/atoms/atoms-nandini/paragraphs/sm/italic/white/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import JSX from "@/components/home/client-testimonials/jsx/index.jsx"
 
 // GET ASTRO PROPS
 const {
@@ -31,8 +34,8 @@ const {
             <HeadingWhite>{ title }</HeadingWhite>
         </div>
         <ParagraphWhiteSMItalic>{ desc1 }</ParagraphWhiteSMItalic>
-        <div class="flex flex-wrap gap-x-6 mr-20 mb-10">
-            <div class="rounded-full overflow-hidden">
+        <div class="flex flex-wrap gap-6 mr-20 mb-10">
+            <div class="rounded-full h-16 w-16 overflow-hidden">
                 <PictureInternal
                     alternative_text="Image"
                     source="/images/client-testimonials.webp"
@@ -48,11 +51,7 @@ const {
                         </a>
                     </div>
                     <div class="flex size-3.5 gap-x-1">
-                        <img alt="star_icon" src="/icons/star-icon.svg">
-                        <img alt="star_icon" src="/icons/star-icon.svg">
-                        <img alt="star_icon" src="/icons/star-icon.svg">
-                        <img alt="star_icon" src="/icons/star-icon.svg">
-                        <img alt="star_icon" src="/icons/star-icon.svg">
+                        <JSX/>
                     </div>
                 </div>     
             </div>    
