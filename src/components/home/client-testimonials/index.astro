@@ -1,70 +1,76 @@
 ---
 
+// IMPORT JSX COMPONENTS
+import JSX from "@/components/home/client-testimonials/jsx/index.jsx"
+
 // IMPORT ASTRO ATOMS
 import ButtonWhite from "@/atoms/atoms-nandini/buttons/white/index.astro"
 import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
-import HeadingWhite from "@/atoms/atoms-nandini/headings/two/white/index.astro"
-import HeadingWhiteSM from "@/atoms/atoms-nandini/headings/two/white/sm/index.astro"
+import HeadingTwoXlBoldWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
+import HeadingTwoSmallWhite from "@/atoms/atoms-nandini/headings/two/sm/bold/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/sm/index.astro"
-import ParagraphWhiteSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
-import ParagraphWhiteSMItalic from "@/atoms/atoms-nandini/paragraphs/sm/italic/white/index.astro"
-
-// IMPORT ASTRO COMPONENTS
-import JSX from "@/components/home/client-testimonials/jsx/index.jsx"
+import ParagraphSmallRed from "@/atoms/atoms-nandini/paragraphs/sm/red/index.astro"
+import ParagraphSmallWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
+import ParagraphSmallItalicWhite from "@/atoms/atoms-nandini/paragraphs/sm/italic/white/index.astro"
 
 // GET ASTRO PROPS
-const {
-
-    button_text1,
-    button_text2,
-    desc1,
-    desc2,
-    desc3,
-    sub_title,
-    title,
-
-} = Astro.props
+const testimonial = [
+    {
+        button_text1:"Read Our Google Reviews",
+        button_text2:"Read Our Reviews",
+        desc1:"Enough praise cannot be lauded to Captivation Agency for the level of professionalism, service, knowledge, and compassion they provide. Countless people ask me each day, “Who did your video?” and I proudly answer. They are so easy to work with and have patience to spare. The staff at Captivation Agency truly cares about the product they produce and go above and beyond to meet and exceed their clients’ needs. It’s an honor to work with them!",
+        desc2:"Owner,",
+        desc3:"Summer Success Institute",
+        sub_title:"Autumn McConnell",
+        title:"Client Testimonials",
+    } 
+]
 
 ---
 
 <section class="bg-black">
     <div class="flex flex-wrap gap-7 px-5 py-20">
-        <div class="w-full border-t-2 pt-20">
-            <HeadingWhite>{ title }</HeadingWhite>
-        </div>
-        <ParagraphWhiteSMItalic>{ desc1 }</ParagraphWhiteSMItalic>
-        <div class="flex flex-wrap gap-6 mr-20 mb-10">
-            <div class="rounded-full h-16 w-16 overflow-hidden">
-                <PictureInternal
-                    alternative_text="Image"
-                    source="/images/client-testimonials.webp"
-                />
-            </div>
-            <div class="">
-                <HeadingWhiteSM>{ sub_title }</HeadingWhiteSM>
-                <div class="space-y-1.5">
-                    <div class="flex gap-x-0.5">
-                        <ParagraphWhiteSM>{ desc2 }</ParagraphWhiteSM>
-                        <a href="/summersuccessinstitute.com">
-                            <ParagraphRed>{ desc3 }</ParagraphRed>
-                        </a>
-                    </div>
-                    <div class="flex size-3.5 gap-x-1">
-                        <JSX/>
-                    </div>
-                </div>     
-            </div>    
-        </div>
-        <div class="border-b-2 pb-20 w-full">
-            <div class="flex flex-wrap gap-y-4 md:flex gap-4">
-                <a href="https://www.google.com/search?q=captivation+agency+reviews&oq=captivation+agency+reviews&aqs=chrome..69i57j69i64l2.4290j0j7&sourceid=chrome&ie=UTF-8#lrd=0x88c340f0951414d9:0xbf4e0bc3d49cc937,1,,,">
-                    <ButtonRed>{ button_text1 }</ButtonRed>
-                </a>
-                <a href="/reviews">
-                    <ButtonWhite>{ button_text2 }</ButtonWhite>
-                </a>
-            </div>
-        </div>
+        {
+            testimonial.map((item)=>{
+                return(
+                            <div class="w-full border-t-2 pt-20">
+                                <HeadingTwoXlBoldWhite>{ item.title }</HeadingTwoXlBoldWhite>
+                            </div>
+                            <ParagraphSmallItalicWhite>{ item.desc1 }</ParagraphSmallItalicWhite>
+                            <div class="flex flex-wrap gap-6 mr-20 mb-10">
+                                <div class="rounded-full h-16 w-16 overflow-hidden">
+                                    <PictureInternal
+                                        alternative_text="Image"
+                                        source="/images/client-testimonials.webp"
+                                    />
+                                </div>
+                                <div class="">
+                                    <HeadingTwoSmallWhite>{ item.sub_title }</HeadingTwoSmallWhite>
+                                    <div class="space-y-1.5">
+                                        <div class="flex gap-x-0.5">
+                                            <ParagraphSmallWhite>{ item.desc2 }</ParagraphSmallWhite>
+                                            <a href="/summersuccessinstitute.com">
+                                                <ParagraphSmallRed>{ item.desc3 }</ParagraphSmallRed>
+                                            </a>
+                                        </div>
+                                        <div class="flex size-3.5 gap-x-1">
+                                            <JSX/>
+                                        </div>
+                                    </div>     
+                                </div>    
+                            </div>
+                            <div class="border-b-2 pb-20 w-full">
+                                <div class="flex flex-wrap gap-y-4 md:flex gap-4">
+                                    <a href="https://www.google.com/search?q=captivation+agency+reviews&oq=captivation+agency+reviews&aqs=chrome..69i57j69i64l2.4290j0j7&sourceid=chrome&ie=UTF-8#lrd=0x88c340f0951414d9:0xbf4e0bc3d49cc937,1,,,">
+                                        <ButtonRed>{ item.button_text1 }</ButtonRed>
+                                    </a>
+                                    <a href="/reviews">
+                                        <ButtonWhite>{ item.button_text2 }</ButtonWhite>
+                                    </a>
+                                </div>
+                            </div>
+                )
+            })
+        }    
     </div>   
 </section>
