@@ -3,10 +3,73 @@
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT FOOTER MDX
+import { frontmatter as footer_data } from "@/content/footer/index.mdx"
+
+const social_links = footer_data.social_links
+const links = footer_data.links
+
 ---
 
-<footer class="bg-black py-20">
+<footer class="bg-black py-20 selection:bg-captivation_red">
     <Container>
-        <p class="text-white">I am footer</p>
+        <div class="grid grid-cols-5 items-center">
+            <div class="col-span-4 space-y-10">
+                <div class="flex gap-4">
+                {
+
+                    social_links.map( ( value ) => {
+
+                        return (
+                            <div class="transition duration-300 hover:-translate-y-1 cursor-pointer">
+                                <img
+                                    src={ value.image }
+                                    class="w-8 object-contain"
+                                />
+                            </div>
+                        )
+
+                    })
+
+                }
+                </div>
+                <div class="w-fit">
+                    <a class="w-fit" href="/">
+                        <p class="text-lg text-itc_avant_garde text-white underline hover:text-captivation_red transition duration-300 underline-offset-4">{ footer_data.address }</p>
+                    </a>
+                    <a class="w-fit" href="/">
+                        <p class="text-lg text-itc_avant_garde text-white underline hover:text-captivation_red transition duration-300 underline-offset-4">{ footer_data.mobile }</p>
+                    </a>
+                </div>
+                <ul class="flex gap-6 flex-wrap">
+                    <li class="text-white text-itc_avant_garde text-base">Copyrights &copy; { new Date().getFullYear() }</li>
+                    {
+
+                        links.map( ( value ) => {
+
+                            if( value.has_link )
+                                return (
+                                    <a class="" href="/">
+                                        <li class="text-white text-itc_avant_garde text-base underline hover:text-captivation_red transition duration-300 underline-offset-4 list-disc">{ value.title }</li>
+                                    </a>
+                                )
+                            else
+                                return (
+                                    <li class="text-white text-itc_avant_garde text-base list-disc">{ value.title }</li>
+                                )
+
+                        })
+
+                    }
+                </ul>
+            </div>
+            <div>
+                <img
+                    src="/images/captivation-logo-with-white-text.svg"
+                    class="size-80"
+                    width="300"
+                />
+            </div>
+        </div>
     </Container>
 </footer>
