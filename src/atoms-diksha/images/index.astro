@@ -1,0 +1,12 @@
+---
+
+//GET ASTRO PROPS
+const {
+    image_source,
+    image_alt,
+    styles,
+} = Astro.props
+
+---
+
+<img src={ image_source } alt={ image_alt } class={ styles } />
