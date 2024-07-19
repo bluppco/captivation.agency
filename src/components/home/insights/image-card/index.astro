@@ -2,37 +2,30 @@
 
 // IMPORT ASTRO ATOMS
 import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
-import HeadingWhite from "@/atoms/atoms-nandini/headings/four/white/index.astro"
+import HeadingWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/index.astro"
-import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/index.astro"
+import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/sm/red/index.astro"
+import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 
 // GET ASTRO PROPS
-const {
-
-    alternative_text,
-    button_text,
-    card_desc1,
-    card_desc2,
-    card_desc3,
-    card_details,
-    card_link,
-    card_title,
-    source,
-
+const{
+    button
 } = Astro.props
 
 ---
-<div class="col-span-1 max-w-md bg-black rounded-xl">
-    <div class="relative overflow-hidden pb-20 sm:pb-10 md:pb-2 border border-b-2 border-t-transparent border-x-transparent hover:rounded-t-xl">
+<div class="lg:row-span-1 max-w-md bg-black rounded-xl">
+    
+        <div class="relative overflow-hidden pb-20 sm:pb-10 md:pb-2 border border-b-2 border-t-transparent border-x-transparent hover:rounded-t-xl">
         <div class="hover:transition-all hover:delay-200 hover:scale-105 hover:duration-500 rounded-t-xl overflow-hidden">
-            <a href={ card_link }>
-                <PictureInternal
-                    alternative_text={ alternative_text }
-                    source={ source }
-                />
-            </a>
+            <div>
+                <a href={ href }>
+                    <PictureInternal
+                        alternative_text={ alternative_text }
+                        source={ source }
+                    />
+                </a>
+            </div>    
         </div>
     </div>
     <div class="flex flex-wrap gap-4 m-5 pb-4">
@@ -40,17 +33,30 @@ const {
             <HeadingWhite>{ card_title }</HeadingWhite>
         </a>
         <ParagraphSM>{ card_desc1 }</ParagraphSM>
-        <div class="flex flex-wrap gap-2 mr-16">
+        <div class="flex flex-wrap gap-2 md:mr-32 lg:mr-16 xl:mr-24 2xl:mr-36">
             <ParagraphSMWhite>{ card_desc2 }</ParagraphSMWhite>
             <ParagraphSMWhite>{ card_desc3 }</ParagraphSMWhite>
         </div>
-        <a href="/general">
-            <ButtonTransparent>{ button_text }</ButtonTransparent>
+         {
+            button.map((item)=>{
+                return(
+                            <a href={ item.href }>
+                                <ButtonTransparent>{ item.button_text }</ButtonTransparent>
+                            </a>
+                )
+            })
+        }  
+        <a href={ href }>
+            <ButtonTransparent>{ buttons }</ButtonTransparent>
         </a>
+       
     </div> 
     <div class="m-5">
         <a href={ card_link }>
             <ParagraphRed>{ card_details }</ParagraphRed>
         </a>
     </div>
+          
+       
+    
 </div>

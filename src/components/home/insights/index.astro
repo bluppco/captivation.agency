@@ -5,13 +5,16 @@ import ImageCard from "@/components/home/insights/image-card/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
-import HeadingWhite from "@/atoms/atoms-nandini/headings/four/white/index.astro"
+import HeadingTwoxlBoldWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/red/index.astro"
-import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/index.astro"
+import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/sm/red/index.astro"
+import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 
 // GET ASTRO PROPS
+const button=[
+    
+]
 const {
 
     button_text,
@@ -32,38 +35,56 @@ const {
     card1_title,
     card2_title,
     card3_title,
+    title,
 
 } = Astro.props
 
 ---
 
 <section>
-    <div class="m-5">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:flex lg:justify-center pb-20 mx-2">
+    <div class="my-20 mx-5">
+        <h2 class="font-bold text-2xl pb-14 mx-3 font-sans">{ title }</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-center pb-20 mx-2">
             <ImageCard
                 alternative_text="card-image"
-                button_text={ button_text }
                 card_desc1={ card1_desc1 }
                 card_desc2={ card1_desc2 }
                 card_desc3={ card1_desc3 }
                 card_details={ card_details }
                 card_link="/insights/sarasota-giving-challenge-2024.html"
                 card_title={ card1_title }
+                href_1="/general"
                 source="/images/insight1.png"
             />
             <ImageCard
                 alternative_text="card-image"
-                button_text={ button_text }
                 card_desc1={ card2_desc1 }
                 card_desc2={ card2_desc2 }
                 card_desc3={ card2_desc3 }
                 card_details={ card_details }
                 card_link="/insights/webinar-the-power-of-personality.html"
                 card_title={ card2_title }
+                href_1="/general"
                 source="/images/insight2.png"
             />
+            <ImageCard
+                alternative_text="card-image"
+                card_desc1={ card3_desc1 }
+                card_desc2={ card3_desc2 }
+                card_desc3={ card3_desc3 }
+                card_details={ card_details }
+                card_link="/insights/webinar-the-power-of-personality.html"
+                card_title={ card3_title }
+                href_1="/articles"
+                href_2="/general"
+                href_3="/helpful-tips"
+                href_4="/rich-media"
+                href_5="/websites"
+                source="/images/insight3.png"
+            />
+
             <!-- Card-3 -->
-            <div class="col-span-1 max-w-md bg-black rounded-xl">
+            <!-- <div class="col-span-1 lg:row-span-1 max-w-md bg-black rounded-xl">
                 <div class="relative overflow-hidden pb-20 sm:pb-10 md:pb-2 border border-b-2 border-t-transparent border-x-transparent hover:rounded-t-xl">
                     <div class="hover:transition-all hover:delay-200 hover:scale-105 hover:duration-500 rounded-t-xl overflow-hidden">
                         <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
@@ -76,7 +97,7 @@ const {
                 </div>
                 <div class="flex flex-wrap gap-4 m-5">
                     <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
-                        <HeadingWhite>{ card3_title }</HeadingWhite>
+                        <HeadingTwoxlBoldWhite>{ card3_title }</HeadingTwoxlBoldWhite>
                     </a>
                     <ParagraphSM>{ card3_desc1 }</ParagraphSM>
                     <div class="flex flex-wrap gap-2 mr-16">
@@ -106,7 +127,10 @@ const {
                         <ParagraphRed>{ card_details }</ParagraphRed>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
+
+
+
