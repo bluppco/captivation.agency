@@ -46,8 +46,9 @@ module.exports = {
 
 			},
 			colors: {
-
-
+				color:{
+					accent:"#e61916",
+				}
 			},
 			fontFamily: {
 
