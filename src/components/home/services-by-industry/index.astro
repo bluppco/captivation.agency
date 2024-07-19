@@ -1,7 +1,47 @@
 ---
 
+// IMPORT ASTRO COMPONENTS
+import IndustryCard from "@/components/home/services-by-industry/industry-card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeThreeXlBoldWhite from "@/atoms-diksha/headings/three/3xl/bold/white/index.astro"
+
+//CONSTANTS
+const industries=[
+    {
+        image_source:"/images/industry/government-agencies.webp",
+        title:"government-agencies",
+        button_text: "Government Agencies",
+    },
+    {
+        image_source:"/images/industry/non-profit-organization.webp",
+        title:"non-profit-organizations",
+        button_text: "Non-Profit Organizations",
+    },
+    {
+        image_source:"/images/industry/lawyers-and-law-office.webp",
+        title:"lawyers-and-law-office",
+        button_text: "Lawyers and Law Office",
+    },
+    {
+        image_source:"/images/industry/financial-advisors-planner.webp",
+        title:"financial-advisors-planner",
+        button_text: "Financial Advisors & Planners",
+    }
+]
 ---
 
-<section>
-
+<section class="bg-black px-4 py-12 lg:px-6 lg:py-24 flex flex-col gap-6">
+    <HeadingThreeThreeXlBoldWhite>Services by Industry</HeadingThreeThreeXlBoldWhite>
+    <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
+        {
+            industries.map((service) => (
+                <IndustryCard
+                    image_source={ service.image_source }
+                    title={ service.title }
+                    button_text={ service.button_text }
+                />
+            ))
+        }
+    </div>
 </section>
