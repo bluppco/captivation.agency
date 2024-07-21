@@ -8,6 +8,7 @@ import ButtonWhite from "@/atoms/atoms-nandini/buttons/white/index.astro"
 import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
 import HeadingTwoXlBoldWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
 import HeadingTwoSmallWhite from "@/atoms/atoms-nandini/headings/two/sm/bold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
 import ParagraphSmallRed from "@/atoms/atoms-nandini/paragraphs/sm/red/index.astro"
 import ParagraphSmallWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
@@ -27,7 +28,6 @@ const data={
 }
 
 ---
-
 <section class="bg-black">
     <div class="flex flex-wrap gap-7 px-5 py-20">
         <div class="w-full border-t-2 pt-20">
@@ -35,35 +35,35 @@ const data={
         </div>
         <ParagraphSmallItalicWhite>{ data.desc1 }</ParagraphSmallItalicWhite>
         <div class="flex flex-wrap gap-6 mr-20 mb-10">
-            <div class="rounded-full size-16 overflow-hidden">
+            <div class="rounded-full w-16 aspect-[1/1] overflow-hidden">
                 <PictureInternal
                     alternative_text="Image"
                     source="/images/client-testimonials.webp"
                 />
             </div>
-            <div class="">
+            <div>
                 <HeadingTwoSmallWhite>{ data.image_title }</HeadingTwoSmallWhite>
                 <div class="space-y-1.5">
                     <div class="flex gap-0.5">
                         <ParagraphSmallWhite>{ data.image_desc1 }</ParagraphSmallWhite>
-                        <a href="/summersuccessinstitute.com">
+                        <Link aria_label="link-to-summer-success-institute" href="/summersuccessinstitute.com">
                             <ParagraphSmallRed>{ data.image_desc2 }</ParagraphSmallRed>
-                        </a>
+                        </Link>
                     </div>
-                    <div class="flex size-3.5 gap-x-1">
+                    <div class="flex size-3.5 gap-1">
                         <Stars/>
                     </div>
                 </div>     
             </div>    
         </div>
         <div class="border-b-2 pb-20 w-full">
-            <div class="flex flex-wrap gap-y-4 md:flex gap-4">
-                <a href="https://www.google.com/search?q=captivation+agency+reviews&oq=captivation+agency+reviews&aqs=chrome..69i57j69i64l2.4290j0j7&sourceid=chrome&ie=UTF-8#lrd=0x88c340f0951414d9:0xbf4e0bc3d49cc937,1,,,">
+            <div class="flex flex-wrap gap-4">
+                <Link aria_label="link-to-google-reviews" href="https://www.google.com/search?q=captivation+agency+reviews&oq=captivation+agency+reviews&aqs=chrome..69i57j69i64l2.4290j0j7&sourceid=chrome&ie=UTF-8#lrd=0x88c340f0951414d9:0xbf4e0bc3d49cc937,1,,,">
                     <ButtonRed>{ data.button_text1 }</ButtonRed>
-                </a>
-                <a href="/reviews">
+                </Link>
+                <Link aria_label="link-to-reviews" href="/reviews">
                     <ButtonWhite>{ data.button_text2 }</ButtonWhite>
-                </a>
+                </Link>
             </div>
         </div>
     </div>   
