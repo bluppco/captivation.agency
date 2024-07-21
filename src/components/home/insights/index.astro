@@ -1,136 +1,131 @@
 ---
 
+// IMPORT ASTRO LAYOUTS
+import ContainerInsights from "@/layouts/container-insights/index.astro"
+
 // IMOPRT ASTRO COMPONENTS
 import ImageCard from "@/components/home/insights/image-card/index.astro"
 
 // IMPORT ASTRO ATOMS
-import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
-import HeadingTwoxlBoldWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
-import PictureInternal from "@/atoms/picture/internal/index.astro"
-import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/sm/red/index.astro"
-import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
-import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
+import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
+import HeadingTwo2xlBold from "@/atoms/atoms-nandini/headings/two/2xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
 
-// GET ASTRO PROPS
-const button=[
-    
+// BUTTONS ARRAY
+// const button=[
+//     {
+//         button:"Articles"
+//         // href:"/articles"
+//     },
+//     {
+//         button:"General"
+//         // href:"/general"
+//     },
+//     {
+//         button:"Helpful Tips"
+//         // href:"/helpful-tips"
+//     },
+//     {
+//         button:"Rich Media"
+//         // href:"/rich-media"
+//     },
+//     {
+//         button:"Websites"
+//         // href:"/websites"
+//     },
+
+// ]
+
+// CARD ARRAY   
+const card=[
+
+    {
+        aria_label:"link-to-sarasota-giving-challenge-2024",
+        aria_label2:"link-to-general",
+        button:"General",
+        card_details:"Read Post ➜",
+        card_desc1:"Our community is gearing up for another year of a remarkable event that has been making waves for the...",
+        card_desc2:"November 12, 2023",
+        card_desc3:"4 min read",
+        card_title:"The Sarasota Giving Challenge 2024: Ready, Set, Give!",
+        href:"/sarasota-giving-challenge-2024.html",
+        href2:"/general",
+        source:"/images/insight1.png",
+    },
+    {
+        aria_label:"link-to-webinar-the-power-of-personality",
+        aria_label2:"link-to-general",
+        button:"General",
+        card_details:"Read Post ➜",
+        card_desc1:"Personas, Style Guides & Stylescapes for Nonprofits Welcome, everyone! As we gather for this enlightening...",
+        card_desc2:"October 8, 2023",
+        card_desc3:"6 min read",
+        card_title:"WEBINAR: The Power of Personality // Nonprofit Marketing Tools",
+        href:"/webinar-the-power-of-personality.html",
+        href2:"/general",
+        source:"/images/insight2.png",
+    },
+    {
+        aria_label:"link-to-importance-of-user-centered-design-in-creating-engaging-websites",
+        aria_label3:"",
+        button3:{ button1:"Articles" , button2:"General" , button3:"Helpful Tips" , button4:"Rich Media" , button5:"Websites"},
+        card_details:"Read Post ➜",
+        card_desc1:"Discover the Power of User-Centered Design for Engaging Websites. Boost Engagement, Enhance User Experience,...",
+        card_desc2:"October 1, 2023",
+        card_desc3:"4 min read",
+        card_title:"Importance of User-Centered Design in Creating Engaging Websites",
+        href:"/importance-of-user-centered-design-in-creating-engaging-websites.html",
+        source:"/images/insight3.png",
+    },
 ]
-const {
 
-    button_text,
-    card3_button_text1,
-    card3_button_text2,
-    card3_button_text3,
-    card3_button_text4,
-    card1_desc1,
-    card1_desc2,
-    card1_desc3,
-    card2_desc1,
-    card2_desc2,
-    card2_desc3,
-    card3_desc1,
-    card3_desc2,
-    card3_desc3,
-    card_details,
-    card1_title,
-    card2_title,
-    card3_title,
-    title,
+const data={
 
-} = Astro.props
+    title:"Insights",
+    button_red:"All Insights",
+
+}
 
 ---
-
 <section>
-    <div class="my-20 mx-5">
-        <h2 class="font-bold text-2xl pb-14 mx-3 font-sans">{ title }</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-center pb-20 mx-2">
-            <ImageCard
-                alternative_text="card-image"
-                card_desc1={ card1_desc1 }
-                card_desc2={ card1_desc2 }
-                card_desc3={ card1_desc3 }
-                card_details={ card_details }
-                card_link="/insights/sarasota-giving-challenge-2024.html"
-                card_title={ card1_title }
-                href_1="/general"
-                source="/images/insight1.png"
-            />
-            <ImageCard
-                alternative_text="card-image"
-                card_desc1={ card2_desc1 }
-                card_desc2={ card2_desc2 }
-                card_desc3={ card2_desc3 }
-                card_details={ card_details }
-                card_link="/insights/webinar-the-power-of-personality.html"
-                card_title={ card2_title }
-                href_1="/general"
-                source="/images/insight2.png"
-            />
-            <ImageCard
-                alternative_text="card-image"
-                card_desc1={ card3_desc1 }
-                card_desc2={ card3_desc2 }
-                card_desc3={ card3_desc3 }
-                card_details={ card_details }
-                card_link="/insights/webinar-the-power-of-personality.html"
-                card_title={ card3_title }
-                href_1="/articles"
-                href_2="/general"
-                href_3="/helpful-tips"
-                href_4="/rich-media"
-                href_5="/websites"
-                source="/images/insight3.png"
-            />
+    <ContainerInsights>
+        <div class="my-20 space-y-14">
+            <HeadingTwo2xlBold>{ data.title }</HeadingTwo2xlBold>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-center">
+                {
+    
+                    card.map( ( item ) => {
+                        
+                        return (
+    
+                        <ImageCard
+                            alternative_text="card-image"
+                            aria_label={ item.aria_label }
+                            aria_labe2={ item.aria_label2 }
+                            card_desc1={ item.card_desc1 }
+                            card_desc2={ item.card_desc2 }
+                            card_desc3={ item.card_desc3 }
+                            card_details={ item.card_details }
+                            card_link="/insights/sarasota-giving-challenge-2024.html"
+                            card_title={ item.card_title }
+                            href={ item.href }
+                            href2={ item.href2 }
+                            source={ item.source }
+    
+                        />
+    
+                        )
+                    
+                    })
+                }
 
-            <!-- Card-3 -->
-            <!-- <div class="col-span-1 lg:row-span-1 max-w-md bg-black rounded-xl">
-                <div class="relative overflow-hidden pb-20 sm:pb-10 md:pb-2 border border-b-2 border-t-transparent border-x-transparent hover:rounded-t-xl">
-                    <div class="hover:transition-all hover:delay-200 hover:scale-105 hover:duration-500 rounded-t-xl overflow-hidden">
-                        <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
-                            <PictureInternal
-                                alternative_text="Image"
-                                source="/images/insight3.png"
-                            />
-                        </a>
-                    </div>
-                </div>
-                <div class="flex flex-wrap gap-4 m-5">
-                    <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
-                        <HeadingTwoxlBoldWhite>{ card3_title }</HeadingTwoxlBoldWhite>
-                    </a>
-                    <ParagraphSM>{ card3_desc1 }</ParagraphSM>
-                    <div class="flex flex-wrap gap-2 mr-16">
-                        <ParagraphSMWhite>{ card3_desc2 }</ParagraphSMWhite>
-                        <ParagraphSMWhite>{ card3_desc3 }</ParagraphSMWhite>
-                    </div>
-                        <div class="leading-9">
-                            <a href="/articles">
-                                <ButtonTransparent>{ card3_button_text1 }</ButtonTransparent>
-                            </a>
-                            <a href="/general">
-                                <ButtonTransparent>{ button_text }</ButtonTransparent>
-                            </a>
-                            <a href="/helpful-tips">
-                                <ButtonTransparent>{ card3_button_text2 }</ButtonTransparent>
-                            </a>
-                            <a href="/rich-media">
-                                <ButtonTransparent>{ card3_button_text3 }</ButtonTransparent>
-                            </a>
-                            <a href="/websites">
-                                <ButtonTransparent>{ card3_button_text4 }</ButtonTransparent>
-                            </a>
-                        </div>
-                </div> 
-                <div class="m-5">
-                    <a href="/importance-of-user-centered-design-in-creating-engaging-websites">
-                        <ParagraphRed>{ card_details }</ParagraphRed>
-                    </a>
-                </div>
-            </div> -->
+            </div>
+
+            <div class="mt-10">
+                <Link aria_label="link-to-all-insights" href="/insights">
+                    <ButtonRed>{ data.button_red }</ButtonRed>
+                </Link>
+            </div>
         </div>
-    </div>
+    </ContainerInsights>
 </section>
-
-
-
