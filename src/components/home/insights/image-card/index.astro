@@ -5,7 +5,7 @@ import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.a
 import HeadingWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
 import Link from "@/atoms/links/index.astro"
 import PictureInternal from "@/atoms/picture/internal/index.astro"
-import ParagraphRed from "@/atoms/atoms-nandini/paragraphs/sm/red/index.astro"
+import ParagraphRedTranslateX from "@/atoms/atoms-nandini/paragraphs/red/translate-x/index.astro"
 import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 
@@ -104,9 +104,9 @@ const{
 
         }
     </div> 
-    <div class="m-5">
+    <div class="m-5 hover:translate-x-1">
         <Link aria_label={ aria_label } href={ card_link }>
-            <ParagraphRed>{ card_details }</ParagraphRed>
+            <ParagraphRedTranslateX>{ card_details }</ParagraphRedTranslateX>
         </Link>
     </div>
 </div>

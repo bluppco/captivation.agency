@@ -1,10 +1,21 @@
-const stars = ()=> {
+const stars = () => {
+
     {
         let stars = [];
         for (let i = 0; i < 5; i++) {
-            stars.push(<img alt="star_icon" src="/icons/star-icon.svg"/>);
+            stars.push( 
+                    <img 
+                        alt="star_icon" 
+                        class="size-3.5" 
+                        src="/icons/star-icon.svg"
+                    />
+
+            );
         }
-        return stars; 
+
+        return stars;
+    
     };
 }
+
 export default stars;
