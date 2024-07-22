@@ -1,0 +1,112 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ButtonTransparent from "@/atoms/atoms-nandini/buttons/transparent/index.astro"
+import HeadingWhite from "@/atoms/atoms-nandini/headings/two/xl/bold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import ParagraphRedTranslateX from "@/atoms/atoms-nandini/paragraphs/red/translate-x/index.astro"
+import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
+import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
+
+const button = [
+
+    {
+        aria_label3:"",
+        button3:"",
+        href3:"",
+    },
+    {
+        aria_label3:"",
+        button3:"",
+        href3:"",
+    },
+    {
+        aria_label3:"",
+        button3:"",
+        href3:"",
+    },
+    {
+        aria_label3:"",
+        button3:"",
+        href3:"",
+    },
+    {
+        aria_label3:"",
+        button3:"",
+        href3:"",
+    }
+    
+
+
+]
+
+// GET ASTRO PROPS
+const{
+
+    alternative_text,
+    aria_label,
+    aria_label2,
+    // button,
+    card_details,
+    card_desc1,
+    card_desc2,
+    card_desc3,
+    card_link,
+    card_title,
+    href,
+    href2,
+    source,
+
+} = Astro.props
+
+---
+<div class="lg:row-span-1 bg-black rounded-xl">
+    <div class="relative overflow-hidden sm:pb-2 border-b-2 border-t-transparent border-x-transparent hover:rounded-t-xl">
+        <div class="w-auto aspect-[8/7] sm:aspect-video hover:transition hover:delay-200 hover:scale-105 hover:duration-500 rounded-t-xl overflow-hidden">
+            <div>
+                <Link aria_label={ aria_label } href={ href }>
+                    <PictureInternal
+                        alternative_text={ alternative_text }
+                        source={ source }
+                    />
+                </Link>
+            </div>    
+        </div>
+    </div>
+    <div class="flex flex-wrap gap-4 m-5 pb-4">
+        <Link aria_label={ aria_label } href={ card_link }>
+            <HeadingWhite>{ card_title }</HeadingWhite>
+        </Link>
+        <ParagraphSM>{ card_desc1 }</ParagraphSM>
+        <div class="flex flex-wrap gap-2 md:mr-44 lg:mr-16 xl:mr-24 2xl:mr-36">
+            <ParagraphSMWhite>{ card_desc2 }</ParagraphSMWhite>
+            <ParagraphSMWhite>{ card_desc3 }</ParagraphSMWhite>
+        </div>
+        <!-- Only button href would be different -->
+        <Link aria_label={ aria_label2 } href={ href2 }>
+            <ButtonTransparent>{ button }</ButtonTransparent>
+        </Link>
+
+        {
+
+            button.map( ( item ) => {
+                
+                return (
+
+                        <Link aria_label={ item.aria_label3 } href={ item.href3 }>
+                            <ButtonTransparent>{ item.button3 }</ButtonTransparent>
+                        </Link>
+
+                )
+
+            })
+
+        }
+    </div> 
+    <div class="m-5 hover:translate-x-1">
+        <Link aria_label={ aria_label } href={ card_link }>
+            <ParagraphRedTranslateX>{ card_details }</ParagraphRedTranslateX>
+        </Link>
+    </div>
+</div>
