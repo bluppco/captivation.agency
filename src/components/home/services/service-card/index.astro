@@ -1,0 +1,32 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ButtonArrow from "@/atoms-diksha/buttons/arrow/index.astro"
+import ButtonTextLgAccent from "@/atoms-diksha/buttons/text/lg/accent/index.astro"
+import HeadingFourTwoXlSemiboldWhite from "@/atoms-diksha/headings/four/2xl/semibold/white/index.astro"
+import ParagraphLgLightWhite from "@/atoms-diksha/paragraphs/lg/light/white/index.astro"
+import Picture from "@/atoms-diksha/images/index.astro"
+
+// GET ASTRO PROPS
+const {
+    image_source,
+    title,
+    subtitle,
+    button_text,
+} = Astro.props
+
+---
+
+<div class="flex flex-col gap-6">
+    <div class="group relative overflow-hidden w-[440px] border-2 border-white rounded-lg">
+        <Picture image_source={ image_source } image_alt={ title } styles="transform transition-transform duration-300 delay-150 ease-in-out group-hover:scale-105"/>
+    </div>
+    <div>
+        <HeadingFourTwoXlSemiboldWhite>{ title }</HeadingFourTwoXlSemiboldWhite>
+        <ParagraphLgLightWhite>{ subtitle }</ParagraphLgLightWhite>        
+    </div>
+    <ButtonTextLgAccent>
+        { button_text }
+        <ButtonArrow />
+    </ButtonTextLgAccent>
+</div>

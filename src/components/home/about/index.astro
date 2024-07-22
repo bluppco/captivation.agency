@@ -1,7 +1,43 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import ButtonAccent from "@/atoms-diksha/buttons/color-accent/index.astro"
+import ButtonOutlinedAccent from "@/atoms-diksha/buttons/outlined/accent/index.astro"
+import HeadingThreeThreeXlBold from "@/atoms-diksha/headings/three/3xl/bold/index.astro"
+import ParagraphLgLight from "@/atoms-diksha/paragraphs/lg/light/index.astro"
+
 ---
 
-<section>
-
+<section class="px-4 py-8 lg:px-6 lg:py-12">
+    <div class="flex flex-col lg:flex-row justify-between">
+        <div>
+            <!-- export video  -->
+            <div class="w-[640px] h-full rounded-lg">
+                <video
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/bd29d264-c37a-4c02-98c7-13e3ad37c6e3"
+                ></video>
+            </div>
+        </div>
+        <div class="lg:w-1/2 flex flex-col gap-6">
+            <HeadingThreeThreeXlBold>We are Captivation</HeadingThreeThreeXlBold>
+            <ParagraphLgLight>
+                Founded in 2004, <span class="text-color-accent underline">Captivation Agency</span> is an award-winning creative storytelling collective located in Sarasota, Florida. 
+            </ParagraphLgLight>
+            <ParagraphLgLight>
+                We work with brands, non-profits & agencies to elevate and deploy meaningful, engaging, client works in the form of video productions and pixel-perfect, user experience design.
+            </ParagraphLgLight>
+            <ParagraphLgLight>
+                We believe in hard work, exceptional customer service and long-term relationships.
+            </ParagraphLgLight>
+            <div class="py-4 lg:py-6 flex gap-6">
+                <ButtonAccent>
+                    About Captivation
+                </ButtonAccent>
+                <ButtonOutlinedAccent>
+                    Watch Our Video
+                </ButtonOutlinedAccent>
+            </div>
+        </div>
+    </div>
 </section>
