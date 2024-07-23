@@ -1,14 +1,18 @@
 ---
 
+// IMPORT ASTRO LAYOUTS
+import AboutUsLayout from "@/layouts/home/about-us-layout/index.astro"
+
 // IMPORT ASTRO ATOMS
-import ButtonAccent from "@/atoms-diksha/buttons/color-accent/index.astro"
+import ButtonAccent from "@/atoms-diksha/buttons/accent/index.astro"
 import ButtonOutlinedAccent from "@/atoms-diksha/buttons/outlined/accent/index.astro"
 import HeadingThreeThreeXlBold from "@/atoms-diksha/headings/three/3xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphLgLight from "@/atoms-diksha/paragraphs/lg/light/index.astro"
 
 ---
 
-<section class="px-4 py-8 lg:px-6 lg:py-12">
+<AboutUsLayout>
     <div class="flex flex-col lg:flex-row justify-between">
         <div>
             <!-- export video  -->
@@ -31,13 +35,23 @@ import ParagraphLgLight from "@/atoms-diksha/paragraphs/lg/light/index.astro"
                 We believe in hard work, exceptional customer service and long-term relationships.
             </ParagraphLgLight>
             <div class="py-4 lg:py-6 flex gap-6">
-                <ButtonAccent>
-                    About Captivation
-                </ButtonAccent>
-                <ButtonOutlinedAccent>
-                    Watch Our Video
-                </ButtonOutlinedAccent>
+                <Link 
+                    source="/" 
+                    aria_label="about us"
+                >
+                    <ButtonAccent>
+                        About Captivation
+                    </ButtonAccent>
+                </Link>
+                <Link 
+                    source="/" 
+                    aria_label="watch video"
+                >
+                    <ButtonOutlinedAccent>
+                        Watch Our Video
+                    </ButtonOutlinedAccent>
+                </Link>
             </div>
         </div>
     </div>
-</section>
+</AboutUsLayout>

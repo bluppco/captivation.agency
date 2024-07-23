@@ -1,5 +1,8 @@
 ---
 
+// IMPORT ASTRO LAYOUTS
+import ServicesByIndustryLayout from "@/layouts/home/services-layout/index.astro"
+
 // IMPORT ASTRO COMPONENTS
 import IndustryCard from "@/components/home/services-by-industry/industry-card/index.astro"
 
@@ -31,11 +34,11 @@ const industries=[
 ]
 ---
 
-<section class="bg-black px-4 py-12 lg:px-6 lg:py-24 flex flex-col gap-6">
+<ServicesByIndustryLayout>
     <HeadingThreeThreeXlBoldWhite>Services by Industry</HeadingThreeThreeXlBoldWhite>
     <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
         {
-            industries.map((service) => (
+            industries.map( ( service ) => (
                 <IndustryCard
                     image_source={ service.image_source }
                     title={ service.title }
@@ -44,4 +47,4 @@ const industries=[
             ))
         }
     </div>
-</section>
+</ServicesByIndustryLayout>
