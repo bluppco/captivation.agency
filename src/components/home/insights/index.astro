@@ -11,42 +11,17 @@ import ButtonRed from "@/atoms/atoms-nandini/buttons/red/index.astro"
 import HeadingTwo2xlBold from "@/atoms/atoms-nandini/headings/two/2xl/bold/index.astro"
 import Link from "@/atoms/links/index.astro"
 
-// BUTTONS ARRAY
-// const button=[
-//     {
-//         button:"Articles"
-//         // href:"/articles"
-//     },
-//     {
-//         button:"General"
-//         // href:"/general"
-//     },
-//     {
-//         button:"Helpful Tips"
-//         // href:"/helpful-tips"
-//     },
-//     {
-//         button:"Rich Media"
-//         // href:"/rich-media"
-//     },
-//     {
-//         button:"Websites"
-//         // href:"/websites"
-//     },
-
-// ]
-
-// CARD ARRAY   
+// CARD ARRAY
 const card=[
 
     {
         aria_label:"link-to-sarasota-giving-challenge-2024",
         aria_label2:"link-to-general",
-        button:"General",
-        card_details:"Read Post ➜",
+        buttons: [ { button_text: "General", button_link: "/general" } ],
         card_desc1:"Our community is gearing up for another year of a remarkable event that has been making waves for the...",
         card_desc2:"November 12, 2023",
         card_desc3:"4 min read",
+        card_details:"Read Post ➜",
         card_title:"The Sarasota Giving Challenge 2024: Ready, Set, Give!",
         href:"/sarasota-giving-challenge-2024.html",
         href2:"/general",
@@ -55,7 +30,7 @@ const card=[
     {
         aria_label:"link-to-webinar-the-power-of-personality",
         aria_label2:"link-to-general",
-        button:"General",
+        buttons: [ { button_text: "General", button_link: "/general" } ],
         card_details:"Read Post ➜",
         card_desc1:"Personas, Style Guides & Stylescapes for Nonprofits Welcome, everyone! As we gather for this enlightening...",
         card_desc2:"October 8, 2023",
@@ -68,7 +43,13 @@ const card=[
     {
         aria_label:"link-to-importance-of-user-centered-design-in-creating-engaging-websites",
         aria_label3:"",
-        button3:{ button1:"Articles" , button2:"General" , button3:"Helpful Tips" , button4:"Rich Media" , button5:"Websites"},
+        buttons: [
+
+            { button_text: "Articles", button_link: "/articles" },
+            { button_text: "General", button_link: "/general" },
+            { button_text: "Helpful Tips", button_link: "/helpful-tips" },
+
+        ],
         card_details:"Read Post ➜",
         card_desc1:"Discover the Power of User-Centered Design for Engaging Websites. Boost Engagement, Enhance User Experience,...",
         card_desc2:"October 1, 2023",
@@ -93,32 +74,32 @@ const data={
             <HeadingTwo2xlBold>{ data.title }</HeadingTwo2xlBold>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-center">
                 {
-    
+
                     card.map( ( item ) => {
-                        
+
                         return (
-    
-                        <ImageCard
-                            alternative_text="card-image"
-                            aria_label={ item.aria_label }
-                            aria_labe2={ item.aria_label2 }
-                            card_desc1={ item.card_desc1 }
-                            card_desc2={ item.card_desc2 }
-                            card_desc3={ item.card_desc3 }
-                            card_details={ item.card_details }
-                            card_link="/insights/sarasota-giving-challenge-2024.html"
-                            card_title={ item.card_title }
-                            href={ item.href }
-                            href2={ item.href2 }
-                            source={ item.source }
-    
-                        />
-    
+
+                            <ImageCard
+                                alternative_text="card-image"
+                                aria_labe2={ item.aria_label2 }
+                                aria_label={ item.aria_label }
+                                buttons={ item.buttons }
+                                card_desc1={ item.card_desc1 }
+                                card_desc2={ item.card_desc2 }
+                                card_desc3={ item.card_desc3 }
+                                card_details={ item.card_details }
+                                card_link="/insights/sarasota-giving-challenge-2024.html"
+                                card_title={ item.card_title }
+                                href={ item.href }
+                                href2={ item.href2 }
+                                source={ item.source }
+
+                            />
+
                         )
-                    
+
                     })
                 }
-
             </div>
 
             <div class="mt-10">
