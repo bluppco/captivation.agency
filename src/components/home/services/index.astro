@@ -52,13 +52,16 @@ const services = [
     }
 ]
 
+const content = {
+    title:"Services",
+    description:"Our in-house team will personally work with you to identify your goals, highlight what makes your business unique and help deliver that message clearly and concisely - lead by our collective past experiences, while looking ahead to new & emerging technologies, to give you the edge needed for today’s business marketing landscape.",
+}
+
 ---
 
 <ServicesLayout>
-    <HeadingThreeThreeXlBoldWhite>Services</HeadingThreeThreeXlBoldWhite>
-    <ParagraphLgLightWhite>
-        Our in-house team will personally work with you to identify your goals, highlight what makes your business unique and help deliver that message clearly and concisely - lead by our collective past experiences, while looking ahead to new & emerging technologies, to give you the edge needed for today’s business marketing landscape.
-    </ParagraphLgLightWhite>
+    <HeadingThreeThreeXlBoldWhite>{ content.title }</HeadingThreeThreeXlBoldWhite>
+    <ParagraphLgLightWhite>{ content.description }</ParagraphLgLightWhite>
     <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
         {
             services.map( ( service ) => (

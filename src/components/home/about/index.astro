@@ -9,6 +9,14 @@ import ButtonOutlinedAccent from "@/atoms-diksha/buttons/outlined/accent/index.a
 import HeadingThreeThreeXlBold from "@/atoms-diksha/headings/three/3xl/bold/index.astro"
 import Link from "@/atoms/links/index.astro"
 import ParagraphLgLight from "@/atoms-diksha/paragraphs/lg/light/index.astro"
+import Video from "@/atoms-diksha/video/index.astro"
+
+//CONSTANTS
+const content = {
+    title:"We are Captivation",
+    description1:"We work with brands, non-profits & agencies to elevate and deploy meaningful, engaging, client works in the form of video productions and pixel-perfect, user experience design.",
+    description2:"We believe in hard work, exceptional customer service and long-term relationships.",
+}
 
 ---
 
@@ -17,23 +25,16 @@ import ParagraphLgLight from "@/atoms-diksha/paragraphs/lg/light/index.astro"
         <div>
             <!-- export video  -->
             <div class="w-[640px] h-full rounded-lg">
-                <video
-                  class="w-full h-full"
-                  src="https://www.youtube.com/embed/bd29d264-c37a-4c02-98c7-13e3ad37c6e3"
-                ></video>
+                <Video source="https://www.youtube.com/embed/bd29d264-c37a-4c02-98c7-13e3ad37c6e3" />
             </div>
         </div>
         <div class="lg:w-1/2 flex flex-col gap-6">
-            <HeadingThreeThreeXlBold>We are Captivation</HeadingThreeThreeXlBold>
+            <HeadingThreeThreeXlBold>{  content.title   }</HeadingThreeThreeXlBold>
             <ParagraphLgLight>
                 Founded in 2004, <span class="text-color-accent underline">Captivation Agency</span> is an award-winning creative storytelling collective located in Sarasota, Florida. 
             </ParagraphLgLight>
-            <ParagraphLgLight>
-                We work with brands, non-profits & agencies to elevate and deploy meaningful, engaging, client works in the form of video productions and pixel-perfect, user experience design.
-            </ParagraphLgLight>
-            <ParagraphLgLight>
-                We believe in hard work, exceptional customer service and long-term relationships.
-            </ParagraphLgLight>
+            <ParagraphLgLight>{  content.description1   }</ParagraphLgLight>
+            <ParagraphLgLight>{  content.description2   }</ParagraphLgLight>
             <div class="py-4 lg:py-6 flex gap-6">
                 <Link 
                     source="/" 
