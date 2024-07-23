@@ -9,45 +9,13 @@ import ParagraphRedTranslateX from "@/atoms/atoms-nandini/paragraphs/red/transla
 import ParagraphSM from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 import ParagraphSMWhite from "@/atoms/atoms-nandini/paragraphs/sm/white/index.astro"
 
-const button = [
-
-    {
-        aria_label3:"",
-        button3:"",
-        href3:"",
-    },
-    {
-        aria_label3:"",
-        button3:"",
-        href3:"",
-    },
-    {
-        aria_label3:"",
-        button3:"",
-        href3:"",
-    },
-    {
-        aria_label3:"",
-        button3:"",
-        href3:"",
-    },
-    {
-        aria_label3:"",
-        button3:"",
-        href3:"",
-    }
-    
-
-
-]
 
 // GET ASTRO PROPS
 const{
 
     alternative_text,
     aria_label,
-    aria_label2,
-    // button,
+    buttons,
     card_details,
     card_desc1,
     card_desc2,
@@ -55,7 +23,6 @@ const{
     card_link,
     card_title,
     href,
-    href2,
     source,
 
 } = Astro.props
@@ -71,7 +38,7 @@ const{
                         source={ source }
                     />
                 </Link>
-            </div>    
+            </div>
         </div>
     </div>
     <div class="flex flex-wrap gap-4 m-5 pb-4">
@@ -83,27 +50,22 @@ const{
             <ParagraphSMWhite>{ card_desc2 }</ParagraphSMWhite>
             <ParagraphSMWhite>{ card_desc3 }</ParagraphSMWhite>
         </div>
-        <!-- Only button href would be different -->
-        <Link aria_label={ aria_label2 } href={ href2 }>
-            <ButtonTransparent>{ button }</ButtonTransparent>
-        </Link>
-
         {
 
-            button.map( ( item ) => {
-                
+            buttons.map( ( item ) => {
+
                 return (
 
-                        <Link aria_label={ item.aria_label3 } href={ item.href3 }>
-                            <ButtonTransparent>{ item.button3 }</ButtonTransparent>
-                        </Link>
+                    <Link aria_label={ item.button_text } href={ item.button_link }>
+                        <ButtonTransparent>{ item.button_text }</ButtonTransparent>
+                    </Link>
 
                 )
 
             })
 
         }
-    </div> 
+    </div>
     <div class="m-5 hover:translate-x-1">
         <Link aria_label={ aria_label } href={ card_link }>
             <ParagraphRedTranslateX>{ card_details }</ParagraphRedTranslateX>
