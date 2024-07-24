@@ -1,7 +1,7 @@
 ---
 
 // IMPORT ASTRO LAYOUTS
-import AboutUsLayout from "@/layouts/home/about-us-layout/index.astro"
+import ContainerLarge from "@/layouts/container-large/index.astro"
 
 // IMPORT ASTRO ATOMS
 import ButtonAccent from "@/atoms-diksha/buttons/accent/index.astro"
@@ -20,11 +20,11 @@ const content = {
 
 ---
 
-<AboutUsLayout>
+<ContainerLarge>
     <div class="flex flex-col lg:flex-row justify-between">
         <div>
             <!-- export video  -->
-            <div class="w-[640px] h-full rounded-lg">
+            <div class="w-[640px] h-full aspect-video rounded-lg">
                 <Video source="https://www.youtube.com/embed/bd29d264-c37a-4c02-98c7-13e3ad37c6e3" />
             </div>
         </div>
@@ -37,22 +37,18 @@ const content = {
             <ParagraphLgLight>{  content.description2   }</ParagraphLgLight>
             <div class="py-4 lg:py-6 flex gap-6">
                 <Link 
-                    source="/" 
                     aria_label="about us"
+                    source="/" 
                 >
-                    <ButtonAccent>
-                        About Captivation
-                    </ButtonAccent>
+                    <ButtonAccent>About Captivation</ButtonAccent>
                 </Link>
                 <Link 
-                    source="/" 
                     aria_label="watch video"
+                    source="/" 
                 >
-                    <ButtonOutlinedAccent>
-                        Watch Our Video
-                    </ButtonOutlinedAccent>
+                    <ButtonOutlinedAccent>Watch Our Video</ButtonOutlinedAccent>
                 </Link>
             </div>
         </div>
     </div>
-</AboutUsLayout>
+</ContainerLarge>

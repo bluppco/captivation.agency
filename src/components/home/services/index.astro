@@ -1,7 +1,7 @@
 ---
 
 // IMPORT ASTRO LAYOUTS
-import ServicesLayout from "@/layouts/home/services-layout/index.astro"
+import ContainerLarge from "@/layouts/container-large/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import ServiceCard from "@/components/home/services/service-card/index.astro"
@@ -59,27 +59,33 @@ const content = {
 
 ---
 
-<ServicesLayout>
-    <HeadingThreeThreeXlBoldWhite>{ content.title }</HeadingThreeThreeXlBoldWhite>
-    <ParagraphLgLightWhite>{ content.description }</ParagraphLgLightWhite>
-    <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
-        {
-            services.map( ( service ) => (
-                <ServiceCard
-                    button_text={ service.button_text }
-                    image_source={ service.image_source }
-                    subtitle={ service.subtitle }
-                    title={ service.title }
-                />
-            ))
-        }
-    </div>
-    <div class="py-10">
-        <Link
-            source="/"
-            aria_label="new project"
-        >
-            <ButtonAccent>Start a Project</ButtonAccent>
-        </Link>
-    </div>
-</ServicesLayout>
+<div class="bg-black">
+    <ContainerLarge>
+        <HeadingThreeThreeXlBoldWhite>{ content.title }</HeadingThreeThreeXlBoldWhite>
+        <ParagraphLgLightWhite>{ content.description }</ParagraphLgLightWhite>
+        <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
+            {
+
+                services.map( ( service ) => (
+
+                    <ServiceCard
+                        button_text={ service.button_text }
+                        image_source={ service.image_source }
+                        subtitle={ service.subtitle }
+                        title={ service.title }
+                    />
+
+                ))
+
+            }
+        </div>
+        <div class="py-10">
+            <Link
+                aria_label="new project"
+                source="/"
+            >
+                <ButtonAccent>Start a Project</ButtonAccent>
+            </Link>
+        </div>
+    </ContainerLarge>
+</div>

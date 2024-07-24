@@ -18,16 +18,16 @@ const {
 
 <div class="flex flex-col gap-6">
     <div class="group relative overflow-hidden w-[440px] border-2 border-white rounded-lg">
-        <div class="transform transition-transform duration-300 delay-150 ease-in-out group-hover:scale-105">
+        <div class="transform transition-transform duration-300 delay-150 ease-in-out group-hover:scale-105 w-full aspect-auto">
             <Picture 
-                source={ image_source } 
                 alternative_text={ title }  
+                source={ image_source } 
             />
         </div>
     </div>
     <Link 
-        source="/"
         aria_label="page"
+        source="/"
     >
         <ButtonArrowXlAccent>{ button_text }</ButtonArrowXlAccent>
     </Link>
