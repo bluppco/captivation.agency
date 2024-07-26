@@ -1,11 +1,15 @@
 ---
 
+// IMPORT ASTRO LAYOUTS
+import ContainerLarge from "@/layouts/container-large/index.astro"
+
 // IMPORT ASTRO COMPONENTS
 import ServiceCard from "@/components/home/services/service-card/index.astro"
 
 // IMPORT ASTRO ATOMS
-import ButtonAccent from "@/atoms-diksha/buttons/color-accent/index.astro"
+import ButtonAccent from "@/atoms-diksha/buttons/accent/index.astro"
 import HeadingThreeThreeXlBoldWhite from "@/atoms-diksha/headings/three/3xl/bold/white/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphLgLightWhite from "@/atoms-diksha/paragraphs/lg/light/white/index.astro"
 
 //CONSTANTS
@@ -48,26 +52,40 @@ const services = [
     }
 ]
 
+const content = {
+    title:"Services",
+    description:"Our in-house team will personally work with you to identify your goals, highlight what makes your business unique and help deliver that message clearly and concisely - lead by our collective past experiences, while looking ahead to new & emerging technologies, to give you the edge needed for today’s business marketing landscape.",
+}
+
 ---
 
-<section class="bg-black px-4 py-12 lg:px-6 lg:py-24 flex flex-col gap-6">
-    <HeadingThreeThreeXlBoldWhite>Services</HeadingThreeThreeXlBoldWhite>
-    <ParagraphLgLightWhite>
-        Our in-house team will personally work with you to identify your goals, highlight what makes your business unique and help deliver that message clearly and concisely - lead by our collective past experiences, while looking ahead to new & emerging technologies, to give you the edge needed for today’s business marketing landscape.
-    </ParagraphLgLightWhite>
-    <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
-        {
-            services.map((service) => (
-                <ServiceCard
-                    image_source={ service.image_source }
-                    title={ service.title }
-                    subtitle={ service.subtitle }
-                    button_text={ service.button_text }
-                />
-            ))
-        }
-    </div>
-    <div class="py-10">
-        <ButtonAccent>Start a Project</ButtonAccent>
-    </div>
-</section>
+<div class="bg-black">
+    <ContainerLarge>
+        <HeadingThreeThreeXlBoldWhite>{ content.title }</HeadingThreeThreeXlBoldWhite>
+        <ParagraphLgLightWhite>{ content.description }</ParagraphLgLightWhite>
+        <div class="flex flex-col justify-center items-center gap-x-20 xl:gap-x-10 xl:justify-between gap-y-20 sm:flex-row flex-wrap py-12">
+            {
+
+                services.map( ( service ) => (
+
+                    <ServiceCard
+                        button_text={ service.button_text }
+                        image_source={ service.image_source }
+                        subtitle={ service.subtitle }
+                        title={ service.title }
+                    />
+
+                ))
+
+            }
+        </div>
+        <div class="py-10">
+            <Link
+                aria_label="new project"
+                source="/"
+            >
+                <ButtonAccent>Start a Project</ButtonAccent>
+            </Link>
+        </div>
+    </ContainerLarge>
+</div>
