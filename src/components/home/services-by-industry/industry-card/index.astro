@@ -1,7 +1,7 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import ButtonArrowXlAccent from "@/atoms-diksha/buttons/arrow-button/xl/accent/index.astro"
+import ButtonArrowLargeAccent from "@/atoms-diksha/buttons/arrow-button/large/accent/index.astro"
 import Link from "@/atoms/links/index.astro"
 import Picture from "@/atoms/picture/internal/index.astro"
 
@@ -18,7 +18,7 @@ const {
 
 <div class="flex flex-col gap-6">
     <div class="group relative overflow-hidden w-[440px] border-2 border-white rounded-lg">
-        <div class="transform transition-transform duration-300 delay-150 ease-in-out group-hover:scale-105 w-full aspect-auto">
+        <div class="transform transition-transform duration-300 delay-150 ease-in-out group-hover:scale-105 w-full aspect-video">
             <Picture 
                 alternative_text={ title }  
                 source={ image_source } 
@@ -29,6 +29,6 @@ const {
         aria_label="page"
         source="/"
     >
-        <ButtonArrowXlAccent>{ button_text }</ButtonArrowXlAccent>
+        <ButtonArrowLargeAccent>{ button_text }</ButtonArrowLargeAccent>
     </Link>
 </div>
