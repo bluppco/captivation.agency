@@ -1,0 +1,35 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ListItemWhite from "@/atoms/atoms-nandini/list-items/white/index.astro"
+
+// GET ASTRO PROPS
+const { 
+
+    data, 
+    
+} = Astro.props
+
+---
+<div>
+    <ul class="space-y-5 lg:space-y-0 lg:flex gap-5">
+        {
+
+            data.map( ( item ) =>{
+
+                return (
+
+                        <ListItemWhite>
+                            <Link href={ item.data.link }>
+                            { item.data.title }
+                            </Link>
+                        </ListItemWhite>
+
+                )
+
+            })
+
+        }
+    </ul>
+</div>

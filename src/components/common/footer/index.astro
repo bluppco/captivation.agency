@@ -1,12 +1,75 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT FOOTER-COLUMN COLLECTION
+let FooterContactDetails = await getCollection('footer-column')
+FooterContactDetails = FooterContactDetails.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
+// IMPORT ASTRO COMPONENTS
+import FooterColumn from "@/components/common/footer/footer-column/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseWhite from "@/atoms/atoms-nandini/paragraphs/base/white/index.astro"
+import ParagraphBaseWhiteHoverRed from "@/atoms/atoms-nandini/paragraphs/base/white/hover-red/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as contactnumber } from "@/content/footer-extras/contact-number.md"
+import { frontmatter as logo } from "@/content/footer-extras/logo.md"
+import { frontmatter as rights } from "@/content/footer-extras/rights.md"
+import { frontmatter as street } from "@/content/footer-extras/park-street.md"
+
+// HARDCODED DATA
+const contact_link = contactnumber.link
+const contact_text = contactnumber.title
+const logo_source = logo.source
+const rights_text = rights.title
+const street_link = street.link
+const street_text = street.title
+
 ---
 
-<footer class="bg-black py-20">
+<footer class="bg-black pb-10">
     <Container>
-        <p class="text-white">I am footer</p>
+        <div class="flex justify-between">
+            <div class="space-y-10">
+                <div class="md:hidden">
+                    <div class="h-20 aspect-[8/5]">
+                        <PictureInternal 
+                            alternative_text=""
+                            source={ logo_source }
+                        />
+                    </div>
+                </div>
+                <div class="space-y-10">
+                    <div>
+                        <Link href={ street_link }>
+                            <ParagraphBaseWhiteHoverRed>{ street_text }</ParagraphBaseWhiteHoverRed>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link href={ contact_link }>
+                            <ParagraphBaseWhiteHoverRed>{ contact_text }</ParagraphBaseWhiteHoverRed>
+                        </Link>
+                    </div>
+                </div>
+                <FooterColumn data = { FooterContactDetails } />
+                <ParagraphBaseWhite>{ rights_text }</ParagraphBaseWhite>
+            </div>
+            <div class="hidden md:block">
+                <div class="h-28 aspect-[8/5]">
+                    <PictureInternal 
+                        alternative_text=""
+                        source={ logo_source }
+                    />
+                </div>
+            </div>
+        </div>
     </Container>
 </footer>
