@@ -1,7 +1,98 @@
 ---
 
+// IMPORT ASTRO LAYOUTS
+import ContainerSmall from "@/layouts/container-small/index.astro"
+
+// IMPORT ASTRO ATOMS
+import ButtonRed from "@/atoms/atoms-shiva/buttons/red/index.astro"
+import ButtonWhite from "@/atoms/atoms-shiva/buttons/white/index.astro"
+import HeadingOneBoldCenterWhite from "@/atoms/atoms-shiva/headings/one/6xl/bold/center/white/index.astro"
+import HeadingThreeMediumCenterWhite from "@/atoms/atoms-shiva/headings/three/3xl/medium/center/white/index.astro"
+import HeadingTwoMediumCenterWhite from "@/atoms/atoms-shiva/headings/two/2xl/medium/center/white/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+import Video from "@/atoms/atoms-shiva/video/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    brand_title: "Trusted By Leading Brands",
+    button_link_one: "/",
+    button_link_two: "/",
+    button_text_one: "Start A project",
+    button_text_two: "Our Services",
+    subtitle: "Expertly Crafted Videos, Websites, and Designs for Brands, Non-Profits & Agencies",
+    title: "Produce. Develop. Promote.",
+    video_source: "/videos/hero-bg.mp4",
+    video_type: "video/mp4",
+
+}
+const logos = [
+
+    {
+        alternative_text: "",
+        source: "/logo/gm.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/boys-girls-club.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/hca.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/martin.svg",
+    },
+    {
+        alternative_text: "",
+        source: "/logo/tanner.svg",
+    },
+
+]
+
 ---
 
-<section>
+<section class="relative py-16">
+    <div class="absolute inset-0 -z-20">
+        <Video
+            source={ data.video_source }
+            type={ data.video_type }
+        />
+    </div>
+    <div class="absolute inset-0 w-full h-full -z-10 bg-black bg-opacity-70"></div>
+    <ContainerSmall>
+        <div class="flex items-center justify-center">
+            <div class="flex flex-col items-center justify-center gap-10 max-w-screen-lg min-h-dvh">
+                <HeadingOneBoldCenterWhite>{ data.title }</HeadingOneBoldCenterWhite>
+                <HeadingThreeMediumCenterWhite>{ data.subtitle }</HeadingThreeMediumCenterWhite>
+                <div class="flex flex-col sm:flex-row items-center gap-8">
+                    <Link href={ data.button_link_one }>
+                        <ButtonRed>{ data.button_text_one }</ButtonRed>
+                    </Link>
+                    <Link href={ data.button_link_one }>
+                        <ButtonWhite>{ data.button_text_two }</ButtonWhite>
+                    </Link>
+                </div>
+                <HeadingTwoMediumCenterWhite>{ data.brand_title }</HeadingTwoMediumCenterWhite>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    {
 
+                        logos.map( ( logo ) => (
+
+                            <div class="w-36 aspect-[16/7]">
+                                <PictureContain
+                                    alternative_text={ logo.alternative_text }
+                                    source={ logo.source }
+                                />
+                            </div>
+
+                        ))
+
+                    }
+                </div>
+            </div>
+        </div>
+    </ContainerSmall>
 </section>

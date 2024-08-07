@@ -1,0 +1,22 @@
+---
+
+// GET ASTRO PROPS
+const {
+
+    source,
+    type,
+
+} = Astro.props
+
+---
+
+<video 
+    autoplay="" 
+    class="w-full h-full object-cover"
+    loop=""
+    muted="" 
+    playsinline="" 
+    preload="none" 
+>
+    <source src={ source } type={ type }>
+</video>
