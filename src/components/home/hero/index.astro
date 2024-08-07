@@ -11,6 +11,7 @@ import HeadingThreeMediumCenterWhite from "@/atoms/atoms-shiva/headings/three/3x
 import HeadingTwoMediumCenterWhite from "@/atoms/atoms-shiva/headings/two/2xl/medium/center/white/index.astro"
 import Link from "@/atoms/links/index.astro"
 import PictureContain from "@/atoms/picture/internal/contain/index.astro"
+import Video from "@/atoms/atoms-shiva/video/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -22,6 +23,8 @@ const data = {
     button_text_two: "Our Services",
     subtitle: "Expertly Crafted Videos, Websites, and Designs for Brands, Non-Profits & Agencies",
     title: "Produce. Develop. Promote.",
+    video_source: "/videos/hero-bg.mp4",
+    video_type: "video/mp4",
 
 }
 const logos = [
@@ -52,16 +55,12 @@ const logos = [
 ---
 
 <section class="relative py-16">
-    <video 
-        autoplay="" 
-        class="absolute inset-0 -z-20 w-full h-full object-cover"
-        loop=""
-        muted="" 
-        playsinline="" 
-        preload="none" 
-    >
-        <source src="/videos/hero-bg.mp4" type="video/mp4">
-    </video>
+    <div class="absolute inset-0 -z-20">
+        <Video
+            source={ data.video_source }
+            type={ data.video_type }
+        />
+    </div>
     <div class="absolute inset-0 w-full h-full -z-10 bg-black bg-opacity-70"></div>
     <ContainerSmall>
         <div class="flex items-center justify-center">
