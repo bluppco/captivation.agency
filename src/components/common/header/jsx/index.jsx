@@ -1,36 +1,20 @@
 // IMPORT REACT HOOKS
 import { useState } from "react"
 
-// IMPORT CUSTOM CSS
-import "@/styles/custom.css"
-
 // IMPORT REACT ICONS
 import { FaAngleRight } from "react-icons/fa"
 
-// IMPORT ASTRO COLLECTION
-import { getCollection } from "astro:content"
-
-// IMPORT HEADER COLLECTION
-let header_data = await getCollection("header")
-header_data = header_data.filter(item => item.data.active).sort((a, b) => a.data.order - b.data.order)
-
-// IMPORT MARKDOWN
-import { frontmatter as button } from "@/content/header-extra/button.md"
-const Button_link = button.button_link
-const Button_text = button.button_text
-
 // IMPORT JSX COMPONENTS
-import InputJsx from "../input/jsx"
-import MobileHeader from "@/components/common/header/mobile/jsx/index"
-import SocialLinks from "../social-links/jsx"
+import InputJSX from "@/components/common/header/input/jsx"
+import SocialLinks from "@/components/common/header/social-links/jsx"
 
 // IMPORT JSX ATOMS
-import ButtonRedJsx from "@/atoms/atoms-shiva/buttons/red/jsx"
-import LinkJsx from "@/atoms/links/jsx"
-import ParagraphLgWhiteJsx from "@/atoms/atoms-shiva/paragraphs/lg/white/hover-red/jsx"
-import PictureContainJsx from "@/atoms/picture/internal/contain/jsx"
+import ButtonRedJSX from "@/atoms/atoms-shiva/buttons/red/jsx/index"
+import LinkJSX from "@/atoms/links/jsx/index"
+import ParagraphLgWhiteJSX from "@/atoms/atoms-shiva/paragraphs/lg/white/hover-red/jsx/index"
+import PictureContainJSX from "@/atoms/picture/internal/contain/jsx/index"
 
-const Header = () => {
+const Header = ( { header_data, button_link, button_text } ) => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [openDropdowns, setOpenDropdowns] = useState({})
@@ -58,16 +42,16 @@ const Header = () => {
 
         <header>
             <nav className="hidden md:flex flex-col items-center gap-6 fixed left-0 bg-black h-full w-28 z-30 px-2 py-14">
-                <LinkJsx href="/">
-                    <div className="w-14 h-14">
-                        <PictureContainJsx
+                <LinkJSX href="/">
+                    <div className="size-14">
+                        <PictureContainJSX
                             alternative_text=""
                             source="/logo/captivation-main.svg"
                         />
                     </div>
-                </LinkJsx>
-                <div className="w-12 h-12 cursor-pointer" onClick={toggleMenu}>
-                    <PictureContainJsx
+                </LinkJSX>
+                <div className="size-12 cursor-pointer" onClick={ toggleMenu }>
+                    <PictureContainJSX
                         alternative_text=""
                         source={isMenuOpen ? "/icons/cross.svg" : "/icons/menu.svg"}
                     />
@@ -81,9 +65,9 @@ const Header = () => {
 
                             <li className="cursor-pointer">
                                 <div onClick={() => item.data.hasDropdown ? toggleDropdown( index ) : null}>
-                                    <LinkJsx href={ item.data.link }>
+                                    <LinkJSX href={ item.data.link }>
                                         <div className="flex gap-6 items-center">
-                                            <ParagraphLgWhiteJsx>{ item.data.title }</ParagraphLgWhiteJsx>
+                                            <ParagraphLgWhiteJSX>{ item.data.title }</ParagraphLgWhiteJSX>
                                             {
 
                                                 item.data.hasDropdown&&
@@ -93,7 +77,7 @@ const Header = () => {
 
                                             }
                                         </div>
-                                    </LinkJsx>
+                                    </LinkJSX>
                                 </div>
                                 {
                                 
@@ -105,9 +89,9 @@ const Header = () => {
                                                 item.data.items.map( ( subItem ) => (
 
                                                     <li>
-                                                        <LinkJsx href={ subItem.link }>
-                                                            <ParagraphLgWhiteJsx>{ subItem.title }</ParagraphLgWhiteJsx>
-                                                        </LinkJsx>
+                                                        <LinkJSX href={ subItem.link }>
+                                                            <ParagraphLgWhiteJSX>{ subItem.title }</ParagraphLgWhiteJSX>
+                                                        </LinkJSX>
                                                     </li>
 
                                                 ))
@@ -123,18 +107,13 @@ const Header = () => {
                         ))
                     
                     }
-                    <InputJsx placeholder="Search..."/>
-                    <LinkJsx href={ Button_link }>
-                        <ButtonRedJsx>{ Button_text }</ButtonRedJsx>
-                    </LinkJsx>
+                    <InputJSX placeholder="Search..."/>
+                    <LinkJSX href={ button_link }>
+                        <ButtonRedJSX>{ button_text }</ButtonRedJSX>
+                    </LinkJSX>
                     <SocialLinks/>
                 </ul>
             </div>
-            <MobileHeader
-                header_data={ header_data }
-                button_link={ Button_link }
-                button_text={ Button_text }
-            />
         </header>
 
     )
