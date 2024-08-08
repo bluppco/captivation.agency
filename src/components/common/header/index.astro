@@ -1,14 +1,34 @@
 ---
 
-// IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT HEADER COLLECTION
+let header_data = await getCollection("header")
+header_data = header_data.filter(item => item.data.active).sort((a, b) => a.data.order - b.data.order)
+
+// IMPORT MARKDOWN
+import { frontmatter as button } from "@/content/header-extra/button.md"
+const Button_link = button.button_link
+const Button_text = button.button_text
+
+// IMPORT JSX COMPONENTS
+import Header from "@/components/common/header/jsx/index"
+import HeaderMobile from "@/components/common/header/mobile/jsx/index"
 
 ---
 
-<header class="bg-blue-600 h-12">
-    <Container>
-        <section class="flex items-center h-full">
-            <p class="text-white">I am header</p>
-        </section>
-    </Container>
+<header>
+    <Header
+        button_link={ Button_link }
+        button_text={ Button_text }
+        header_data={ header_data }
+        client:load
+    />
+    <HeaderMobile
+        button_link={ Button_link }
+        button_text={ Button_text }
+        header_data={ header_data }
+        client:load
+    />
 </header>
