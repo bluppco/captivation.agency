@@ -1,4 +1,4 @@
-const ButtonRedJsx = ( props ) => {
+const ButtonRedJSX = ( props ) => {
 
     return (
 
@@ -9,4 +9,4 @@ const ButtonRedJsx = ( props ) => {
     )
 
 }
-export default ButtonRedJsx
+export default ButtonRedJSX

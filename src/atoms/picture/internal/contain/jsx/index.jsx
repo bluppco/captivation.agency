@@ -1,4 +1,4 @@
-const PictureContainJsx = ( { alternative_text, source } ) => {
+const PictureContainJSX = ( { alternative_text, source } ) => {
 
     return (
 
@@ -15,4 +15,4 @@ const PictureContainJsx = ( { alternative_text, source } ) => {
     )
 
 }
-export default PictureContainJsx
+export default PictureContainJSX

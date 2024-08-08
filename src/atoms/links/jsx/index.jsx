@@ -1,4 +1,4 @@
-const LinkJsx = ( { aria_label, href, children } ) => {
+const LinkJSX = ( { aria_label, href, children } ) => {
 
     return (
 
@@ -9,4 +9,4 @@ const LinkJsx = ( { aria_label, href, children } ) => {
     )
 
 }
-export default LinkJsx
+export default LinkJSX
