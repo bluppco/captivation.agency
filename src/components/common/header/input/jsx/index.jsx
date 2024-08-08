@@ -1,4 +1,4 @@
-const InputJsx = ( { placeholder } ) => (
+const InputJSX = ( { placeholder } ) => (
 
     <input 
         className="px-4 py-2 border border-white bg-transparent placeholder:text-white focus:outline-none" 
@@ -7,4 +7,4 @@ const InputJsx = ( { placeholder } ) => (
     />
 
 )
-export default InputJsx
+export default InputJSX
