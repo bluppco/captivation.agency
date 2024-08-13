@@ -1,0 +1,34 @@
+---
+
+// IMPORT ASTRO ATOMS
+import ButtonArrowLargeAccent from "@/atoms-diksha/buttons/arrow-button/large/accent/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/internal/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_text,
+    image_source,
+    title,
+    
+} = Astro.props
+
+---
+
+<div class="flex flex-col gap-6">
+    <div class="group relative overflow-hidden w-[440px] border-2 border-white rounded-lg">
+        <div class="transform transition-transform duration-300 delay-150 ease-in-out group-hover:scale-105 w-full aspect-video">
+            <Picture 
+                alternative_text={ title }  
+                source={ image_source } 
+            />
+        </div>
+    </div>
+    <Link 
+        aria_label="page"
+        source="/"
+    >
+        <ButtonArrowLargeAccent>{ button_text }</ButtonArrowLargeAccent>
+    </Link>
+</div>

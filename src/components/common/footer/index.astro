@@ -1,73 +1,74 @@
 ---
 
+// IMPORT ASTRO COLLECTION
+import { getCollection } from 'astro:content'
+
+// IMPORT FOOTER-COLUMN COLLECTION
+let FooterContactDetails = await getCollection('footer-column')
+FooterContactDetails = FooterContactDetails.sort( ( a, b ) => a.data.order - b.data.order).filter( ( item ) => item.data.live )
+
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
-// IMPORT FOOTER MDX
-import { frontmatter as footer_data } from "@/content/footer/index.mdx"
+// IMPORT ASTRO COMPONENTS
+import FooterColumn from "@/components/common/footer/footer-column/index.astro"
 
-const social_links = footer_data.social_links
-const links = footer_data.links
+// IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseWhite from "@/atoms/atoms-nandini/paragraphs/base/white/index.astro"
+import ParagraphBaseWhiteHoverRed from "@/atoms/atoms-nandini/paragraphs/base/white/hover-red/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+
+// IMPORT DATA FROM FRONT-MATTER
+import { frontmatter as contactnumber } from "@/content/footer-extras/contact-number.md"
+import { frontmatter as logo } from "@/content/footer-extras/logo.md"
+import { frontmatter as rights } from "@/content/footer-extras/rights.md"
+import { frontmatter as street } from "@/content/footer-extras/park-street.md"
+
+// HARDCODED DATA
+const contact_link = contactnumber.link
+const contact_text = contactnumber.title
+const logo_source = logo.source
+const rights_text = rights.title
+const street_link = street.link
+const street_text = street.title
 
 ---
 
-<footer class="bg-black py-20 selection:bg-captivation_red">
+<footer class="bg-black pb-10">
     <Container>
-        <div class="grid grid-cols-2 md:grid-cols-5 items-center relative">
-            <div class="col-span-4 space-y-10 order-last md:order-first">
-                <div class="flex gap-4">
-                {
-
-                    social_links.map( ( value ) => {
-
-                        return (
-                            <div class="transition duration-300 hover:-translate-y-1 cursor-pointer">
-                                <img
-                                    src={ value.image }
-                                    class="w-8 object-contain"
-                                />
-                            </div>
-                        )
-
-                    })
-
-                }
+        <div class="flex justify-between">
+            <div class="space-y-10">
+                <div class="md:hidden">
+                    <div class="h-20 aspect-[8/5]">
+                        <PictureInternal 
+                            alternative_text=""
+                            source={ logo_source }
+                        />
+                    </div>
                 </div>
-                <div class="w-fit">
-                    <a class="w-fit" href="/">
-                        <p class="text-lg text-itc_avant_garde text-white underline hover:text-captivation_red transition duration-300 underline-offset-4">{ footer_data.address }</p>
-                    </a>
-                    <a class="w-fit" href="/">
-                        <p class="text-lg text-itc_avant_garde text-white underline hover:text-captivation_red transition duration-300 underline-offset-4">{ footer_data.mobile }</p>
-                    </a>
+                <div class="space-y-10">
+                    <div>
+                        <Link href={ street_link }>
+                            <ParagraphBaseWhiteHoverRed>{ street_text }</ParagraphBaseWhiteHoverRed>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link href={ contact_link }>
+                            <ParagraphBaseWhiteHoverRed>{ contact_text }</ParagraphBaseWhiteHoverRed>
+                        </Link>
+                    </div>
                 </div>
-                <ul class="flex gap-6 flex-wrap">
-                    <li class="text-white text-itc_avant_garde text-base">Copyrights &copy; { new Date().getFullYear() }</li>
-                    {
-
-                        links.map( ( value ) => {
-
-                            if( value.has_link )
-                                return (
-                                    <a class="" href="/">
-                                        <li class="text-white text-itc_avant_garde text-base underline hover:text-captivation_red transition duration-300 underline-offset-4 list-disc">{ value.title }</li>
-                                    </a>
-                                )
-                            else
-                                return (
-                                    <li class="text-white text-itc_avant_garde text-base list-disc">{ value.title }</li>
-                                )
-
-                        })
-
-                    }
-                </ul>
+                <FooterColumn data = { FooterContactDetails } />
+                <ParagraphBaseWhite>{ rights_text }</ParagraphBaseWhite>
             </div>
-            <div class="w-full md:w-80 relative">
-                <img
-                    src="/images/captivation-logo-with-white-text.svg"
-                    class="object-contain"
-                />
+            <div class="hidden md:block">
+                <div class="h-28 aspect-[8/5]">
+                    <PictureInternal 
+                        alternative_text=""
+                        source={ logo_source }
+                    />
+                </div>
             </div>
         </div>
     </Container>
