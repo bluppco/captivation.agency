@@ -46,9 +46,10 @@ module.exports = {
 
 			},
 			colors: {
-				color:{
-					accent:"#e61916",
-				}
+
+				captivation_red: "#E61C16",
+        accent:"#e61916",
+
 			},
 			fontFamily: {
 
